@@ -4,17 +4,15 @@ link source : [here](https://www.tecmint.com/manage-and-create-lvm-parition-usin
 #### Using root user 
 `$ sudo su; 123456a@`
 
-`
+```
 parted /dev/sdb
-
-# parted /dev/sdb
-# print free
-# mklabel gpt
-# unit GB
-# mkpart primary 0.00GB 500GB # thay đổi thông số đầu cuối
-# print
-# quit
-`
+print free
+mklabel gpt
+unit GB
+mkpart primary 0.00GB 500GB # thay đổi thông số đầu cuối
+print
+quit
+```
 #### 1. Create physical volumes
 `$ pvcreate /dev/sdb /dev/sdb`
 
