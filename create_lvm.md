@@ -1,8 +1,20 @@
 # Step by step create LVM
+link source : [here](https://www.tecmint.com/manage-and-create-lvm-parition-using-vgcreate-lvcreate-and-lvextend/) and [here](https://docs.gluster.org/en/latest/Administrator%20Guide/formatting-and-mounting-bricks/)
 
 #### Using root user 
 `$ sudo su; 123456a@`
 
+`
+parted /dev/sdb
+
+# parted /dev/sdb
+# print free
+# mklabel gpt
+# unit GB
+# mkpart primary 0.00GB 500GB # thay đổi thông số đầu cuối
+# print
+# quit
+`
 #### 1. Create physical volumes
 `$ pvcreate /dev/sdb /dev/sdb`
 
@@ -22,7 +34,7 @@ root@ipos:/home/ipos# pvs -a
 
 
 #### 3. Create volume group name 'vg_minio_storage'
-`$ vgcreate vg_minio_storage /dev/sdb`
+`$ vgcreate -s 32M vg_minio_storage /dev/sdb1`
 
 #### 4. Display list volume groups after created
 `$ vgs -a`
